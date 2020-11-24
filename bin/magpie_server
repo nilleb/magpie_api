@@ -1,0 +1,6 @@
+if [[ ! -f "env/bin/activate" ]]; then
+    bin/setup
+fi
+
+. env/bin/activate
+env/bin/python -m magpie_server $@
