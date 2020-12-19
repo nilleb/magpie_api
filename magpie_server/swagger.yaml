@@ -1,7 +1,7 @@
 swagger: "2.0"
 info:
   description: Exposes magpie as a REST API, in order to easily pick and retrieve data.
-  version: "1.0.0"
+  version: "0.0.1"
   title: Magpie REST API
 consumes:
   - "application/json"
@@ -14,30 +14,49 @@ basePath: "/api/v1"
 paths:
   /references:
     get:
-      operationId: "references.list"
+      operationId: "magpie_server.references.list"
       tags:
         - "references"
         - "data"
       summary: "Retrieve the list of references. Each reference will include the commit id, the kind, the subkind."
       description: "Retrieve the list of references."
       responses:
-        200:
+        '200':
           description: "Successful read references list operation"
           schema:
-            $ref: '#/components/schemas/References'
+            $ref: '#/definitions/ArrayOfReferences'
 
-components:
-  schemas:
-    References:
-      type: array
-      items:
-        $ref: "#/components/schemas/Reference"
-    Reference:
-      type: object
-      properties:
-        commit_id:
-          type: string
-        kind:
-          type: string
-        subkind:
-          type: string
+
+definitions:
+  Reference:
+    type: object
+    properties:
+      repositoryId:
+        type: string
+      commitId:
+        type: string
+      kind:
+        type: string
+      subkind:
+        type: string
+      branch:
+        type: string
+      sizeKiB:
+        type: integer
+      collectedAt:
+        type: string
+        format: date-time
+  ArrayOfReferences:
+    type: array
+    items:
+      $ref: '#/definitions/Reference'
+  Error:
+    type: object
+    properties:
+      code:
+        type: string
+      message:
+        type: string
+    required:
+      - code
+      - message
