@@ -1,7 +1,8 @@
 <template>
-  <div>
-    <p>Hello!</p>
-    <p>{{ msg }}</p>
+  <div class="container">
+    <p>Listed in the follow are all the current references</p>
+    <button type="button" class="btn btn-primary">pong</button>
+    {{msg}}
   </div>
 </template>
 
