@@ -24,7 +24,10 @@ paths:
         '200':
           description: "Successful read references list operation"
           schema:
-            $ref: '#/definitions/ArrayOfReferences'
+            type: object
+            properties:
+              items:
+                $ref: '#/definitions/ArrayOfReferences'
 
 
 definitions:

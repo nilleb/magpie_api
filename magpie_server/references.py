@@ -5,4 +5,4 @@ def list():
     db = DBProvider(configuration()).database
     ReferenceData.bind(db)
     query = ReferenceData.select().order_by(ReferenceData.collected_at)
-    return [item for item in query]
+    return {'items': [item for item in query]}
