@@ -1,4 +1,4 @@
-set -ueopipefail
+set -ueo pipefail
 
 cd client
 yarn serve
