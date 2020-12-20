@@ -1,3 +1,5 @@
+set -euo pipefail
+
 # install a venv so to keep your system interpreter clean
 python3 -m venv env
 source env/bin/activate
@@ -6,3 +8,6 @@ pip install --upgrade pip
 pip install -r dev-requirements.txt
 pip install -r requirements.txt
 pip install ../magpie/dist/magpie-*-py3-none-any.whl
+
+cd client
+yarn install

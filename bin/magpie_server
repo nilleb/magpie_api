@@ -1,3 +1,5 @@
+set -ueopipefail
+
 if [[ ! -f "env/bin/activate" ]]; then
     bin/setup
 fi
