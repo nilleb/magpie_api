@@ -21,7 +21,7 @@ export default {
       const path = 'http://localhost:5000/api/v1/references';
       axios.get(path)
         .then((res) => {
-          this.msg = res.data;
+          this.msg = res.data.items;
         })
         .catch((error) => {
           // eslint-disable-next-line
